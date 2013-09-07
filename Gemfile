@@ -44,6 +44,7 @@ group :test, :development do
   gem 'pry'
   gem 'rubocop'
   gem 'guard'
+  gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'minitest', '~> 4.7.0'
 
