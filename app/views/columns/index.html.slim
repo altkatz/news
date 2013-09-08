@@ -1,0 +1,16 @@
+ul class="nav nav-tabs"
+  li.active
+    = link_to "index", "/columns"
+  -@columns.each do |col|
+    li
+      = link_to "#{col.name}", "/columns/#{col.id}/"
+
+div class="article-list"
+  ul
+    -@columns.each do |col|
+      -col.articles.each do |article|
+        li
+          div class="article-list-img"
+            = image_tag(article.img_url)
+          div class="article-list-url"
+            = link_to article.title, "/articles/#{article.id}"

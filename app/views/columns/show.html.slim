@@ -1,7 +1,9 @@
 ul class="nav nav-tabs"
+  li
+    = link_to "index", "/columns"
   -@columns.each do |col|
     li class = ((@column.name == col.name)?'active':'')
-      = link_to "#{col.name}", "/columns/#{col.name}/"
+      = link_to "#{col.name}", "/columns/#{col.id}/"
 
 div class="article-list"
   ul
@@ -10,4 +12,4 @@ div class="article-list"
         div class="article-list-img"
           = image_tag(article.img_url)
         div class="article-list-url"
-          = link_to article.title, "/columns/#{@column.name}/articles/#{article.id}"
+          = link_to article.title, "/articles/#{article.id}"

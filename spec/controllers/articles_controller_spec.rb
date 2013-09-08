@@ -13,13 +13,12 @@ describe ArticlesController, 'index' do
       @art.save
       @col.articles << @art
 
-      get 'index', {use_route: 'articles', column_name: @col.name}
+      get 'show', id: @art.id, use_route: 'articles'
 
     end
 
     it { should respond_with(:success) }
-#    it { should render_template(:show) }
- #   it { should_not set_the_flash }
-  #  it { should rescue_from(ActiveRecord::RecordNotFound).with(:render_404) }
+    it { should render_template(:show) }
+
   end
 end
