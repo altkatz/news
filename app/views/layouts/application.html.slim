@@ -16,11 +16,23 @@ html lang='en'
         div class='container'
 
           ul class='nav navbar-nav pull-right'
+            li
+              div
+                - if current_user
+                  | #{current_user.email}
+                  |  |
+                  | #{link_to "Log out", log_out_path}
+                - else
+                  = link_to "Sign up", sign_up_path
+                  | or
+                  | #{link_to "Log in", log_in_path}
 
           ul class='nav navbar-nav pull-left'
 
     div class='container main'
       div class='main-wrapper'
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash#{name}"
 
         div class='row' = yield
         div class='main-wrapper-push'
