@@ -1,0 +1,17 @@
+ul class="nav nav-tabs"
+  -@columns.each do |col|
+    li = link_to "#{col.name}", "/columns/#{col.name}/"
+
+
+h1 Articles
+
+div class="article-list"
+  ul
+    -@articles.each do |article|
+      li
+        div class="article-list-img"
+          = image_tag(article.img_url)
+        div class="article-list-title"
+          = article.title
+        div class="article-list-url"
+          = link_to "article url", "/columns/#{@column.name}/articles/#{article.id}"
