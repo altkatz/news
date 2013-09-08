@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: news_development
+  username: postgres
+  password: 
+  host: localhost
+  port: 5432
+
+prodcution:
+  adapter: postgresql
+  encoding: unicode
+  database: news_production
+  username: postgres
+  password: 
+  host: localhost
+  port: 5432
+  
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: news_test
+  username: postgres
+  password: 
+  host: localhost
+  port: 5432
+  
