@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  def admin?
+    User.find(session[:user_id]).role == 'admin' if session[:user_id]
+  end
+
+  def authorize_admin
+    redirect_to log_in_url, alert: "Not authorized" if !admin?
+  end
+
 end

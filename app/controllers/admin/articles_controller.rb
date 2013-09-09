@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
-
+  before_filter :authorize_admin
+  layout 'admin/application'
   def index
   end
 
@@ -16,7 +17,8 @@ class Admin::ArticlesController < ApplicationController
 
 
   private
+
   def article_params
-    params.require(:user).permit!
+    params.require(:article).permit!
   end
 end
