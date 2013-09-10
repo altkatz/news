@@ -3,6 +3,9 @@ class Article < ActiveRecord::Base
   validates :title, :summary, presence: true
   validates :status, inclusion: { in: %w(draft published banned),
     message: "%{value} is not a valid status" }
+
+  default_scope { where(status: 'published') }
+
   scope :published, -> { where(status: 'published') }
   scope :draft, -> { where(status: 'draft') }
   scope :banned, -> { where(status: 'banned') }

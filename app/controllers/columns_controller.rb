@@ -1,7 +1,8 @@
 class ColumnsController < ApplicationController
 
   def index
-    @columns = Column.includes(:articles).limit(10)
+    @columns = Column.includes(:articles)
+    @articles = @columns.map(&:articles).flatten.uniq
   end
 
   def show
