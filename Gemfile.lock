@@ -201,8 +201,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.3.0)
-      coffee-rails
     tzinfo (0.3.37)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
@@ -242,6 +240,5 @@ DEPENDENCIES
   simplecov
   slim-rails
   spork
-  turbolinks
   uglifier (>= 1.3.0)
   unicorn
