@@ -2,7 +2,7 @@ class ColumnsController < ApplicationController
 
   def index
     @columns = Column.includes(:articles)
-    @articles = @columns.map(&:articles).flatten.uniq
+    @articles = @columns.map(&:articles).map(&:published).flatten.uniq
   end
 
   def show

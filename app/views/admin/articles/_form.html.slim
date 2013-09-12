@@ -1,26 +1,27 @@
 fieldset class='controls-group'
-  = f.label :title, :class => 'control-label'
-  div class='controls'
+
+  div class='controls span2'
+    = f.label "标题", :class => 'control-label'
     = f.text_field :title
-    span class='help-inline' = "url"
 
-  = f.label :summary, :class => 'control-label'
-  div class='controls'
-    = f.text_field :summary
-    span class='help-inline' = "craw interval"
+  div class='controls span2'
+    = f.label "摘要", :class => 'control-label'
+    = f.text_area :summary
 
-  = f.label :content, :class => 'control-label'
-  div class='controls'
-    = f.text_field :content
-    span class='help-inline' = "crawlable time"
+  div class='controls span2'
+    = f.label "状态", :class => 'control-label'
+    = f.select :status, [['草稿','draft'],['发布','published'],['取消','banned']]
 
-  = f.label :columns, :class => 'control-label'
-  div class='controls'
+  div class='controls span2'
+    = f.label "栏目", :class => 'control-label'
     - for col in Column.find(:all)
       div
         = check_box_tag "article[column_ids][]", col.id, @article.columns.include?(col)
         = col.name
-        span class='help-inline' = "column name"
+
+  div class='controls'
+    = f.label "内容", :class => 'control-label'
+    = f.text_area :content
 
 div class="form-actions"
   = f.submit "save", :class => 'btn btn-primary'

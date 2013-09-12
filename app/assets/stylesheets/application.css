@@ -63,3 +63,6 @@ footer p {
 li {
   list-style: none;
 }
+div.controls.span2 {
+  float: left;
+}
