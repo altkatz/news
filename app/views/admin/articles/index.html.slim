@@ -1,1 +1,27 @@
-h1 articles
+ul class="nav nav-tabs"
+  li class="active" = link_to "index", admin_articles_path
+  li = link_to "new", new_admin_article_path
+
+div class="tabs-content"
+  table class="table table-striped table-hover table-condensed" id="list"
+    thead
+      tr
+        th class='header list-menu'
+        th class='header' 标题
+
+    tbody
+      -@articles.each do |article|
+        tr class='list-row'
+          td class='list-column list-selectable' = check_box_tag 'article_ids[]', :value => article.id, :class => 'list-selectable-checkbox'
+          td class='list-column' = article.title
+          td class='list-column list-row-action'
+            div class='list-row-action-wrapper'
+              = link_to "edit", edit_admin_article_path(article.id), :rel => :tooltip, :title => "edit", :class => 'list-row-action-wrapper-link'
+              = link_to "trash", :rel => :tooltip, :title => "delete article", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              div class='popover list-row-action-popover-delete-one left'
+                div class='arrow'
+                h3 class='popover-title' = "delete article"
+                div class='popover-content'
+                  - form_tag admin_article_path(article.id), :method => :delete do
+                    = submit_tag :delete, :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    div class='btn btn-small cancel' = "cancel"

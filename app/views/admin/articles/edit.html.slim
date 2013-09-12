@@ -1,0 +1,8 @@
+ul class="nav nav-tabs"
+  li = link_to "index", admin_articles_path
+  li = link_to "new", new_admin_article_path
+  li class="active" = link_to "edit", edit_admin_article_path
+
+div class="tabs-content"
+  = form_for [:admin, @article], url: {action: "edit"}, html: {class: 'form-horizontal' }do |f|
+    = render partial: 'admin/articles/form', locals: {f: f}
